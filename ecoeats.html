@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoEats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("C:\Users\BS\OneDrive\Desktop\ecoeats\png-transparent-bakery-cupcake-pastry-dessert-cake-food-frozen-dessert-sweetness-thumbnail.jpg"); no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #logo img {
+      width: 150px;
+      height: auto;
+    }
+
+    .item-img, .bakery-img {
+      max-width: 50px; /* Set the maximum width of the image */
+      max-height: 50px; /* Set the maximum height of the image */
+      vertical-align: middle; /* Align image with text */
+      margin-right: 10px; /* Add space between image and text */
+    }
+
+    #welcome p {
+      font-size: 18px;
+      margin: 20px;
+    }
+
+    #buttons button,
+    form button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #6B4226;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #buttons button:hover,
+    form button:hover {
+      background-color: #8E5B3E;
+    }
+
+    form input,
+    form select {
+      margin: 10px;
+      padding: 8px;
+      width: 80%;
+    }
+
+    form label {
+      display: block;
+      margin: 10px auto;
+      text-align: left;
+      width: 80%;
+    }
+
+    h2 {
+      color: #6B4226;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #6B4226;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .popup button {
+      margin-top: 10px;
+    }
+
+    .back-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #6B4226;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #8E5B3E;
+   }
+		</style>
+</head>
+<body>
+  <!-- First Page -->
+  <div id="first-page">
+    <div id="logo">
+      <img src= "C:\Users\BS\OneDrive\Desktop\ecoeats\photo_2024-11-25_22-35-13.jpg" alt="EcoEats Logo">
+    </div>
+    <div id="welcome">
+      <p>"Fresh Savings on Near-Expiry Baked Goods – Quality You Can Trust, Prices You’ll Love!".</p>
+    </div>
+    <div id="buttons">
+      <button onclick="showSignup()">Sign Up</button>
+      <button onclick="showLogin()">Login</button>
+      <button onclick="showDownloadPopup()">Download Application</button>
+    </div>
+  </div>
+
+  <!-- Signup Section -->
+  <div id="signup-section" style="display: none;">
+    <h2>Sign Up</h2>
+    <form id="signup-form" onsubmit="event.preventDefault(); showBakedGoods();">
+      <label>Name:</label>
+      <input type="text" required><br>
+      <label>Email:</label>
+      <input type="email" required><br>
+      <label>Password:</label>
+      <input type="password" required><br>
+      <label>Phone Number:</label>
+      <input type="tel" required><br>
+      <label>Residence:</label>
+      <input type="text" required><br>
+      <label>Address:</label>
+      <input type="text" required><br>
+      <button type="submit">Sign Up</button>
+    </form>
+    <button class="back-button" onclick="goBack('first-page')">Back</button>
+  </div>
+
+  <!-- Login Section -->
+  <div id="login-section" style="display: none;">
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="event.preventDefault(); showBakedGoods();">
+      <label>Email:</label>
+      <input type="email" required><br>
+      <label>Password:</label>
+      <input type="password" required><br>
+      <button type="submit">Login</button>
+    </form>
+    <button class="back-button" onclick="goBack('first-page')">Back</button>
+  </div>
+<!-- Baked Goods Section -->
+  <div id="baked-goods-section" style="display: none;">
+    <h2>Offered Baked Goods</h2>
+    <form id="goods-form" onsubmit="event.preventDefault(); showBakeries();">
+      <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\download.jpeg" alt="Bagles" class="item-img"> Bagles - 50 L.E
+        <input type="checkbox" class="item-checkbox" data-price="50">
+      </label>
+      <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_4_2024-11-25_21-16-19.jpg" alt="Bread" class="item-img"> Bread - 25 L.E
+        <input type="checkbox" class="item-checkbox" data-price="25">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_6_2024-11-25_21-16-19.jpg" alt="Brownies" class="item-img"> Brownies- 75 L.E
+        <input type="checkbox" class="item-checkbox" data-price="75">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_7_2024-11-25_21-16-19.jpg" alt="Cakes" class="item-img"> Cakes- 45 L.E
+        <input type="checkbox" class="item-checkbox" data-price="45">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_12_2024-11-25_21-16-19 - Copy.jpg" alt="Cheesecake" class="item-img"> Cheesecake- 65 L.E
+        <input type="checkbox" class="item-checkbox" data-price="65">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_1_2024-11-25_21-16-19 - Copy.jpg" alt="Cookies" class="item-img"> Cookies- 35 L.E
+        <input type="checkbox" class="item-checkbox" data-price="35">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_8_2024-11-25_21-16-19.jpg" alt="Croissant" class="item-img"> Croissant- 45 L.E
+        <input type="checkbox" class="item-checkbox" data-price="45">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_3_2024-11-25_21-16-19.jpg" alt="Cupcakes" class="item-img"> Cupcakes- 15 L.E
+        <input type="checkbox" class="item-checkbox" data-price="15">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_10_2024-11-25_21-16-19.jpg" alt="Donut" class="item-img"> Donut- 15 L.E
+        <input type="checkbox" class="item-checkbox" data-price="15">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_5_2024-11-25_21-16-19.jpg" alt="Muffin" class="item-img"> Muffin- 35 L.E
+        <input type="checkbox" class="item-checkbox" data-price="35">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_2_2024-11-25_21-16-19 - Copy.jpg" alt="Pastries" class="item-img"> Pastries- 55 L.E
+        <input type="checkbox" class="item-checkbox" data-price="55">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\Fresh-Strawberry-Pie-Recipe-Video.jpg" alt="Pie" class="item-img"> Pie- 20 L.E
+        <input type="checkbox" class="item-checkbox" data-price="20">
+      </label>
+      <!-- Add more goods here -->
+      <button type="submit">Next</button>
+    </form>
+    <button class="back-button" onclick="goBack('signup-section')">Back</button>
+  </div>
+<!-- Bakeries Section -->
+  <div id="bakeries-section" style="display: none;">
+    <h2>Select Bakeries</h2>
+    <form id="bakeries-form" onsubmit="event.preventDefault(); showPurchasePage();">
+      <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_5_2024-11-25_20-18-41.jpg" alt="Krispy Kreme" class="bakery-img"> Krispy Kreme
+        <input type="checkbox" name="bakeries" value="Krispy Kreme">
+      </label>
+      <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_6_2024-11-25_20-18-41.jpg" alt="bouchée" class="bakery-img"> bouchée
+        <input type="checkbox" name="bakeries" value="bouchée">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_7_2024-11-25_20-18-41.jpg" alt="TBS" class="bakery-img"> TBS
+        <input type="checkbox" name="bakeries" value="TBS">
+      </label>
+     <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_3_2024-11-25_20-18-41.jpg" alt=" Salé Sucré Pâtisserie" class="bakery-img">  Salé Sucré Pâtisserie
+        <input type="checkbox" name="bakeries" value=" Salé Sucré Pâtisserie">
+      </label>
+     <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_1_2024-11-25_20-18-41.jpg" alt="Simonds" class="bakery-img"> Simonds
+        <input type="checkbox" name="bakeries" value="Simonds">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_4_2024-11-25_20-18-41.jpg" alt="Dunkin Donuts" class="bakery-img"> Dunkin Donuts
+        <input type="checkbox" name="bakeries" value="Dunkin Donuts">
+      </label>
+    <label>
+        <img src="C:\Users\BS\OneDrive\Desktop\ecoeats\photo_2_2024-11-25_20-18-41.jpg" alt="El Abd" class="bakery-img"> El Abd
+        <input type="checkbox" name="bakeries" value="El Abd">
+      </label>
+    
+    
+      <!-- Add more bakeries here -->
+      <button type="submit">Next</button>
+    </form>
+    <button class="back-button" onclick="goBack('baked-goods-section')">Back</button>
+  </div>
+
+  <!-- Purchase Section -->
+  <div id="purchase-section" style="display: none;">
+    <h2>Purchase</h2>
+    <form id="purchase-form">
+      <p>Selected Items:</p>
+      <div id="goods-list">
+            </div>
+      <label>
+        Quantity:
+        <select id="quantity-selector">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+      <label>Address:</label>
+      <input type="text" id="delivery-address" required><br>
+      <p>Total Price: L.E<span id="bill-amount">0</span></p>
+      <button type="submit">Confirm Purchase</button>
+    </form>
+      <button class="back-button" onclick="goBack('bakeries-section')">Back</button>
+  </div>
+
+  <!-- Thank You Section -->
+  <div id="thank-you-section" style="display:none;">
+    <h2>Thank You for Choosing EcoEats!</h2>
+    <button class="back-button" onclick="goBack('first-page')">Back to Home</button>
+  </div>
+
+  <!-- Download Popup -->
+  <div class="popup" id="download-popup">
+    <p>Thank you for visiting! We're busy behind the scenes crafting a unique experience just for you. Our website is almost ready to launch, and we can’t wait to share it with you.</p>
+    <button onclick="goBack('first-page')">Back</button>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('.item-checkbox');
+      const quantitySelector = document.getElementById('quantity-selector');
+      const billAmount = document.getElementById('bill-amount');
+
+      function updateBillAmount() {
+        let total = 0;
+        checkboxes.forEach(checkbox => {
+          if (checkbox.checked) {
+            total += parseInt(checkbox.getAttribute('data-price'));
+          }
+        });
+        total *= parseInt(quantitySelector.value);
+        billAmount.innerText = total;
+      }
+
+      // Listen for checkbox changes
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateBillAmount);
+      });
+
+      // Listen for quantity changes
+      quantitySelector.addEventListener('change', updateBillAmount);
+    });
+
+    function showSignup() {
+      document.getElementById('first-page').style.display = 'none';
+      document.getElementById('signup-section').style.display = 'block';
+    }
+
+    function showLogin() {
+      document.getElementById('first-page').style.display = 'none';
+      document.getElementById('login-section').style.display = 'block';
+    }
+
+    function showDownloadPopup() {
+      document.getElementById('download-popup').style.display = 'block';
+      document.getElementById('first-page').style.display = 'none';
+    }
+
+    function goBack(pageId) {
+      const sections = document.querySelectorAll('div[id$="-section"], .popup');
+      sections.forEach(section => section.style.display = "none");
+      document.getElementById(pageId).style.display = "block";
+    }
+
+    function showBakedGoods() {
+      document.getElementById('signup-section').style.display = 'none';
+      document.getElementById('baked-goods-section').style.display = 'block';
+    }
+
+    function showBakeries() {
+      document.getElementById('baked-goods-section').style.display = 'none';
+      document.getElementById('bakeries-section').style.display = 'block';
+    }
+
+    function showPurchasePage() {
+      document.getElementById('bakeries-section').style.display = 'none';
+      document.getElementById('purchase-section').style.display = 'block';
+    }
+
+    function showThankYouPage() {
+      document.getElementById('purchase-section').style.display = 'none';
+      document.getElementById('thank-you-section').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
